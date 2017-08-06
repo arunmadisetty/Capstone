@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  real_estate_data_id: 1
+  address: MyString
+  level: MyString
+  tier_rank: MyString
+  total_size: 1
+  grad_rate: 1
+  act_scores: 1
+  gifted_program: MyString
+
+two:
+  name: MyString
+  real_estate_data_id: 1
+  address: MyString
+  level: MyString
+  tier_rank: MyString
+  total_size: 1
+  grad_rate: 1
+  act_scores: 1
+  gifted_program: MyString

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  neighborhood: MyString
+  avg_home_price: 1
+  avg_rent: 1
+  crime: 1
+  median_age: 1
+
+two:
+  neighborhood: MyString
+  avg_home_price: 1
+  avg_rent: 1
+  crime: 1
+  median_age: 1

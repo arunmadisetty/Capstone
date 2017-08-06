@@ -1,0 +1,2 @@
+class RealEstateDatum < ApplicationRecord
+end
