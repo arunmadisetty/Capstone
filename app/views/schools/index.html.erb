@@ -1,0 +1,8 @@
+<h1>Schools (<%= @schools.length %>)</h1>
+
+<% @schools.each do |school| %>
+  <h2><%= school.name %></h2>
+  <h3>Located in <%= school.real_estate_datum.neighborhood %></h3>
+  <h5>Tier: <%= school.tier_rank %></h5>
+  <h5>Type: <%= school.level %></h5>
+<% end %>

@@ -2,7 +2,7 @@ class CreateSchools < ActiveRecord::Migration[5.1]
   def change
     create_table :schools do |t|
       t.string :name
-      t.integer :real_estate_data_id
+      t.integer :real_estate_datum_id
       t.string :address
       t.string :level
       t.string :tier_rank

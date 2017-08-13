@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170806213517) do
 
   create_table "schools", force: :cascade do |t|
     t.string "name"
-    t.integer "real_estate_data_id"
+    t.integer "real_estate_datum_id"
     t.string "address"
     t.string "level"
     t.string "tier_rank"
