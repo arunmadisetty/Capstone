@@ -1,0 +1,6 @@
+<h1><%= current_user.name %>'s saved searches</h1>
+
+<% @saved_searches.each do |search| %>
+  <h4><%= search.school.name %></h4>
+  
+<% end %>

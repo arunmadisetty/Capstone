@@ -1,9 +1,15 @@
 <div class="container">
   <h2><%= @school.name %></h2>
-  
-  <h3>Neighborhood: <%= @school.real_estate_datum.neighborhood %></h3>
   <h5>Tier: <%= @school.tier_rank %></h5>
   <h5>Type: <%= @school.level %></h5>
-  
+  <h5>Total size: <%= @school.total_size %></h5>
+  <h5>Graduation rate: <%= @school.grad_rate %></h5>
+  <% if @school.act_scores > 0 %>
+    <h5>Average ACT scores: <%= @school.act_scores %></h5>
+  <% end %>
+  <h3>About the neighborhood</h3>
+  <h3><%= @school.real_estate_datum.neighborhood %></h3>
+
+
   <a type="button" class="btn btn-default" href="/">Back to main page</a>
 </div>
