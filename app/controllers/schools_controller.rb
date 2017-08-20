@@ -12,4 +12,5 @@ class SchoolsController < ApplicationController
     render "show.html.erb"
   end
 
+
 end
