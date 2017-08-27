@@ -1,7 +1,11 @@
 class SchoolsController < ApplicationController
+
   def index
     # List of all the schools will be displayed here
     @schools = School.all
+    @response = Unirest.post "https://data.cityofchicago.org/resource/iqnd-nmue.json",
+      headers:{ "Accept" => "application/json" },
+      parameters:{ :age => 23, :foo => "bar" }
     render "index.html.erb"
   end
 
