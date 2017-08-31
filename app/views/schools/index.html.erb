@@ -2,20 +2,16 @@
   {{ message }}
 </div>
 
-<h1>Testing Unirest</h1>
-<div>
-  <p><%= @response.first %></p>
-</div>
 <h1>Schools (<%= @schools.length %>)</h1>
 
 <% @schools.each do |school| %>
-  <h2><a href="/schools/<%= school.id %>"><%= school.name %></a></h2>
-  <h3>Located in <%= school.real_estate_datum.neighborhood %></h3>
-  <h5>Tier: <%= school.tier_rank %></h5>
-  <h5>Type: <%= school.level %></h5>
+  <h2><a href="/schools/<%= school["id"] %>"><%= school["long_name"] %></a></h2>
+  <h3>Located at <%= school["address"] %></h3>
+  <h5>Neighborhood: <%= %></h5>
+  <h5>Type: <%= school["school_type"] %></h5>
   <div>
     <%= form_tag "/savedsearch", method: "post" do %>
-      <input type="hidden" class="form-control" name="form_product_id" value="<%= school.id %>">
+      <input type="hidden" class="form-control" name="form_product_id" value="<%= school["school_id"] %>">
       <input type="submit" class="btn btn-default" value="Select to compare">
     <% end %>
   </div>
