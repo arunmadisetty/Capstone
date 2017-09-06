@@ -1,6 +1,13 @@
+<div id="app">
+  {{ message }}
 
-<h1><%= current_user.name %>'s saved searches</h1>
-
-<% @saved_searches.each do |search| %>
-  <h4><%= search.school.name %></h4>
-<% end %>
+  <h2><%= current_user.name %>'s saved searches</h2>
+  <transition-group name="bounceIn">
+    <div v-for="ringer in ringers" v-bind:key="ringer.id">
+      <h3>{{ ringer.character }} | {{ ringer.location }}</h3>
+    </div>
+  </transition-group>
+  <% @saved_schools.each do |school| %>
+    <p><%= school["long_name"] %></p>
+  <% end %>
+</div>

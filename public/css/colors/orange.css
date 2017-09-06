@@ -1,0 +1,170 @@
+/* Buttons */
+.btn-blue-solid,
+.btn-blue-solid:hover,
+.btn-blue,
+.readmore-button,
+.btn-big-blue,
+.hr-button,
+.hr-button-white:hover {
+    border-color: #fb724e;
+}
+.btn-blue-solid,
+.btn-blue:hover,
+.btn-big-blue {
+    background: #fb724e;
+}
+.btn-blue-solid:hover,
+.btn-blue,
+.readmore-button,
+.btn-big-blue:hover,
+.hr-button,
+.hr-button-white:hover {
+    color: #fb724e;
+}
+
+/* Topbar */
+.topbar-right a:hover {
+    color: #fb724e;
+}
+
+/* Navbar/ Menu */
+.nav li a:hover {
+    color: #fb724e !important;
+}
+.right-navbar ul li a:hover {
+    color: #fb724e;
+}
+.cart-num {
+    background-color: #fb724e;
+}
+
+/* About */
+.big-number,
+.rt-link a,
+.img-column-2 .rt-link-left a {
+    color: #fb724e;
+}
+
+/* What We Do */
+.what-we-do h4 {
+    color: #fb724e;
+}
+
+/* About Info */
+.about-info h1,
+.facts-counter span {
+    color: #fb724e;
+}
+
+/* Team */
+.team-overlay .social-share a:hover i,
+.member-detail h4,
+.overlay_content p {
+    color: #fb724e;
+}
+
+/* Work Carousel */
+.work-carousel .owl-controls .owl-buttons div,
+.work-carousel-2 .owl-controls .owl-buttons div,
+.related-posts-carousel .owl-controls .owl-buttons div {
+    color: #fb724e !important;
+}
+.work-carousel-3 .owl-pagination .owl-page.active span {
+    background-color: #fb724e !important;
+}
+
+/* Design Styles */
+.design-styles h4,
+.process-column h4 {
+    color: #fb724e;
+}
+
+/* Partners */
+.partners-2 .owl-controls .owl-buttons div {
+    color: #fb724e !important;
+}
+
+/* Breadcrumbs */
+.breadcrumbs ul li a.active {
+    color: #fb724e;
+}
+
+/* Blog Post */
+.post-date,
+.blog-short-detail a,
+.blog-post h4 a,
+.blog-post h4,
+.blog-post ul li a:hover,
+.reply:hover {
+    color: #fb724e;
+}
+
+/* Blog Sidebar */
+.search-form .btn-search:hover,
+.categories ul li a:hover,
+.tags ul li a:hover,
+.twitter-feed a,
+.twitter-feed i,
+.twitter-feed .expand:hover,
+.article-date {
+    color: #fb724e;
+}
+.calender .active {
+    background: #fb724e;
+}
+.tags ul li a:hover {
+    border-color: #fb724e;
+}
+
+/* Properties */
+.property-price,
+.property-actions ul li a,
+.property-search h6 {
+    color: #fb724e;
+}
+.property-actions ul li a {
+    border-color: #fb724e !important;
+}
+.property-actions ul li a:hover {
+    background-color: #fb724e;
+}
+
+/* Agents */
+.agents-carousel .owl-controls .owl-buttons .owl-prev:hover,
+.agents-carousel .owl-controls .owl-buttons .owl-next:hover,
+.featured-properties-carousel .owl-controls .owl-buttons .owl-prev:hover,
+.featured-properties-carousel .owl-controls .owl-buttons .owl-next:hover {
+    color: #fb724e !important;
+}
+.agent-details h4 {
+    color: #fb724e;
+}
+
+/* Footer */
+.footer h5,
+.quick-links ul li a:hover,
+.news-details h4 a,
+.newsletter-form .btn-search:hover,
+.footer-social li a:hover,
+.copyrights-links ul li a:hover {
+    color: #fb724e;
+}
+
+/* Signup Modal/ Popup */
+.close span {
+    border-color: #fb724e;
+    color: #fb724e;
+}
+.lost-password span {
+    background: #fb724e;
+}
+.sale-ribbon.ribbon-blue {
+    background: #fb724e;
+}
+
+#color-switcher h2 {
+  background-color: #fb724e;
+}
+#color-switcher i {
+  color: #fb724e;
+}

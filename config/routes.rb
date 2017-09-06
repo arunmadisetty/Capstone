@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      get "savedsearch" => "saved_searches#index"
+    end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get "/" => "pages#home"
 
@@ -19,6 +25,6 @@ Rails.application.routes.draw do
 
   get "/savedsearch" => "saved_searches#index"
   post "/savedsearch" => "saved_searches#create"
-  get "/savedsearch/:id" => "saved_searches#show"
+  # get "/savedsearch/:id" => "saved_searches#show"
 
 end

@@ -1,0 +1,1 @@
+json.array! @saved_schools
