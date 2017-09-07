@@ -1,10 +1,10 @@
 <div class="container">
-  <h2><%= @school_primary.first["long_name"] %></h2>
-  <h5><%= @school_primary.first["summary"] %></h5>
+  <h2><%= @school_primary["long_name"] %></h2>
+  <h5><%= @school_primary["summary"] %></h5>
   <h3>About the neighborhood</h3>
   <div>
     <%= form_tag "/savedsearch", method: "post" do %>
-      <input type="hidden" class="form-control" name="form_product_id" value="<%= @school_primary.first["school_id"] %>">
+      <input type="hidden" class="form-control" name="form_school_id" value="<%= @school_primary["school_id"] %>">
       <input type="submit" class="btn btn-default" value="Select to compare">
     <% end %>
   </div>

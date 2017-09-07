@@ -21,7 +21,7 @@ class SchoolsController < ApplicationController
       "https://data.cityofchicago.org/resource/76dk-7ieb.json",
       parameters: {"school_id" => school_id}
     )
-    @school_primary = response_show.body
+    @school_primary = response_show.body[0]
     # @long_name = response_show.body.first["long_name"]
 
     render "show.html.erb"

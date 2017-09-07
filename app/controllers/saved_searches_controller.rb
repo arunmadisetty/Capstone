@@ -12,9 +12,10 @@ class SavedSearchesController < ApplicationController
   end
 
   def create
+
     saved_search = SavedSearch.new(
       user_id: current_user.id,
-      school_id: params[:input_school_id],
+      school_id: school_id,
       status: "saved"
     )
     saved_search.save

@@ -8,7 +8,6 @@ class Api::V1::SavedSearchesController < ApplicationController
         )
       @saved_schools << response.body[0]
     end
-    # render "index.html.erb"
     render "index.json.jbuilder"
   end
 end
