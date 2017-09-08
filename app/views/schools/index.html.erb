@@ -1,3 +1,16 @@
+<div id="mapIndex"></div>
+
+<script>
+function initMap() {
+  var mapIndexed = new google.maps.Map(document.getElementById('mapIndex'), {
+    center: {lat: 41.8922745, lng: -87.6346887},
+    zoom: 11
+  });
+}
+</script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18&callback=initMap"
+ async defer></script>
+
 <div id="app">
   {{ message }}
 </div>

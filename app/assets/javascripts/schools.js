@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         type: "GET",
         success: function(data) {
           console.log(data);
-          var map = new google.maps.Map(document.getElementById('map'), {
+          var mapSaved = new google.maps.Map(document.getElementById('mapSavedSearch'), {
             center: {lat: 41.8922745, lng: -87.6346887},
             zoom: 11
           });
@@ -22,10 +22,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // var point = {lat: latitude, lng: longitude};
             // console.log('point is ', point);
             var marker = new google.maps.Marker({
-              map: map,
+              map: mapSaved,
               position: {lat: latitude, lng: longitude}
             });
           });
+
+          
+          // data.forEach(function(datum) {
+          //   console.log('datum is', datum["location"]["coordinates"]);
+          //   var latitude = datum["location"]["coordinates"][1];
+          //   var longitude = datum["location"]["coordinates"][0];
+          //   // var point = {lat: latitude, lng: longitude};
+          //   // console.log('point is ', point);
+          //   var marker = new google.maps.Marker({
+          //     map: mapIndexed,
+          //     position: {lat: latitude, lng: longitude}
+          //   });
+          // });
 
           this.savedsearch = data;
         }.bind(this)
