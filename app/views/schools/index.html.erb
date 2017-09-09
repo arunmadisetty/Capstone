@@ -1,25 +1,38 @@
-<div id="mapIndex"></div>
+<div class="container">
 
-<script>
-function initMap() {
-  var mapIndexed = new google.maps.Map(document.getElementById('mapIndex'), {
-    center: {lat: 41.8922745, lng: -87.6346887},
-    zoom: 11
-  });
-}
-</script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18&callback=initMap"
- async defer></script>
+<div class="row">
+  
+  <!-- List of all CPS schools -->
+  <div class="col-sm-4">
+    <div id="app">
+      {{ message }}
+    </div>
 
-<div id="app">
-  {{ message }}
+    <h1>Schools (<%= @schools_primary.length %>)</h1>
+    <% @schools_primary.each do |school| %>
+      <div>
+        <h4><a href="/schools/<%= school["school_id"] %>"><%= school["long_name"].upcase %></a></h4>
+        <h4>Located at <%= school["address"].capitalize %></h4>
+        <p>Type: <%= school["school_type"] %></p>
+        <% end %>
+      </div>
+  </div>
+
+  <!-- Google Maps view -->
+  <div class="col-sm-8">
+    <div id="mapIndex"></div>
+      <script>
+        function initMap() {
+          var mapIndexed = new google.maps.Map(document.getElementById('mapIndex'), {
+            center: {lat: 41.8922745, lng: -87.6346887},
+            zoom: 11
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18&callback=initMap" async defer>
+      </script>
+  </div>
+
 </div>
 
-<h1>Schools (<%= @schools_primary.length %>)</h1>
-
-<% @schools_primary.each do |school| %>
-  <h3><a href="/schools/<%= school["school_id"] %>"><%= school["long_name"] %></a></h3>
-  <h3>Located at <%= school["address"] %></h3>
-  <h5>Type: <%= school["school_type"] %></h5>
-  
-<% end %>
+</div>
