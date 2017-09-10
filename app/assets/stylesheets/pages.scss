@@ -6,9 +6,33 @@
 }
 
 #mapIndex {
-  height: 500px;
+  height: 600px;
 }
 
 #mapShow {
-  height: 500px;
+  height: 400px;
+}
+
+.container {
+
+}
+
+.no-gutters {
+  margin-right: 5;
+  margin-left: 5;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+body {
+
+}
+
+.well {
+  width: 100%;
+  margin: 0;
 }

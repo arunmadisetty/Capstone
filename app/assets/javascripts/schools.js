@@ -3,9 +3,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var app = new Vue({
     el: '#app',
     data: {
-      message: 'Hello Vue!'
+      message: '',
+      nameFilter: "",
+      schools: []
     },
     mounted: function() {
+    // Ajax call for SavedSearches
       Rails.ajax({
         url: "/api/v1/savedsearch",
         type: "GET",
@@ -43,9 +46,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
           this.savedsearch = data;
         }.bind(this)
       });
+    
+    // Ajax call for Index
+      Rails.ajax({
+        url: "/api/v1/schools",
+        type: "GET",
+        success: function(schools) {
+          console.log(schools);
+          this.schools = schools;
+        }.bind(this)
+      });
     },
     methods: {
-
+      isValidSchool: function(school) {
+        return school.long_name.toLowerCase().indexOf(this.nameFilter.toLowerCase()) !== -1;
+      }
     },
     computed: {
 
