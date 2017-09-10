@@ -15,7 +15,7 @@ class SavedSearchesController < ApplicationController
 
     saved_search = SavedSearch.new(
       user_id: current_user.id,
-      school_id: school_id,
+      school_id: params[:school_id],
       status: "saved"
     )
     saved_search.save
