@@ -56,6 +56,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
           this.schools = schools;
         }.bind(this)
       });
+
+    // Ajax call for Show
+      Rails.ajax({
+        url: "/api/v1/schools/:id",
+        type: "GET",
+        success: function(school) {
+          console.log(school);
+          this.school = school;
+        }.bind(this)
+      });
     },
     methods: {
       isValidSchool: function(school) {

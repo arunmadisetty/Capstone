@@ -1,20 +1,23 @@
 <div id="mapSavedSearch"></div>
-
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18"
- async defer></script>
-
+  <div class="well">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18" async defer></script>
+  </div>
 
 <div id="app">
-  <h2><%= current_user.name %>'s saved searches</h2>
-  <transition-group name="bounceIn">
-    <div v-for="datum in data" v-bind:key="datum.id">
-      <h3>{{ datum
-.character }} | {{ datum
-.location }}</h3>
+  <div class="col-md-6">
+    <div class="well">
+    <h3><%= current_user.name %>'s saved searches</h3>
+      <div v-for="datum in data" v-if="isValidSchool(datum)">
+        <h3>{{ datum.long_name }} | {{ datum.address }}</h3>
+      </div>
     </div>
-  </transition-group>
+  </div>
 
-  <% @saved_schools.each do |school| %>
-    <p><%= school["long_name"] %></p>
-  <% end %>
+  <div class="col-md-6">
+    <div class="well">
+      <% @saved_schools.each do |school| %>
+        <p><%= school["long_name"] %></p>
+      <% end %>
+    </div>
+  </div>
 </div>

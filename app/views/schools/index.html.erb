@@ -1,62 +1,58 @@
 <div class="container">
-    <div class="row no-gutters">
-      
-      <!-- List of all CPS schools - Rails -->
-        <div class="col-sm-3">
+  <div class="row no-gutters">
+    <!-- List of all CPS schools - Rails -->
+      <div class="col-sm-3">
 
-          <!-- <h1>Schools (<%= @schools_primary.length %>)</h1> -->
-          <div class="well">
-          <% @schools_primary.each do |school| %>
-              <h4><a href="/schools/<%= school["school_id"] %>"><%= school["long_name"] %></a></h4>
-              <h4>Located at <%= school["address"].capitalize %></h4>
-              <p>Type: <%= school["school_type"] %></p>
-              <div>
-                <%= form_tag "/savedsearch", method: "post" do %>
-                  <input type="hidden" class="form-control" name="form_school_id" value="<%= school["school_id"] %>">
-                  <input type="submit" class="btn btn-default" value="Select to compare">
-                <% end %>
-              </div>
-              <br>
-          <% end %>
-          </div>
+        <!-- <h1>Schools (<%= @schools_primary.length %>)</h1> -->
+        <div class="well">
+        <% @schools_primary.each do |school| %>
+            <h4><a href="/schools/<%= school["school_id"] %>"><%= school["long_name"] %></a></h4>
+            <h4>Located at <%= school["address"].capitalize %></h4>
+            <p>Type: <%= school["school_type"] %></p>
+            <div>
+              <%= form_tag "/savedsearch", method: "post" do %>
+                <input type="hidden" class="form-control" name="form_school_id" value="<%= school["school_id"] %>">
+                <input type="submit" class="btn btn-default" value="Select to compare">
+              <% end %>
+            </div>
+            <br>
+        <% end %>
         </div>
+      </div>
 
   <div id="app">
-    {{ message }}
     <!-- List of all CPS schools - VueJS -->
       <div class="col-sm-3">
         <div class="well">
           <div>
             <input type="text" v-model="nameFilter" list="cpsNames">
-            <datalist id="cpsNames">
-              <option v-for="school in schools">{{ school.long_name }}</option>
-            </datalist>
           </div>
+          <br>
           <div v-for="school in schools" v-if="isValidSchool(school)">
-            <h4>{{ school.long_name }}</h4>
+            <h4><a v-bind:href="'/schools/' + school.school_id">{{ school.long_name }}</a></h4>
+            <h4>Located at {{ school.address }}</h4>
+            <p>Type: {{ school.school_type }}</p>
             <br>
           </div>
         </div>
       </div>
   </div>
 
-      <!-- Google Maps view -->
-        <div class="col-sm-6">
-          <div class="well">
-          <div id="mapIndex"></div>
-            <script>
-              function initMap() {
-                var mapIndexed = new google.maps.Map(document.getElementById('mapIndex'), {
-                  center: {lat: 41.8922745, lng: -87.6346887},
-                  zoom: 11
-                });
-              }
-            </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18&callback=initMap" async defer>
-            </script>
-          </div>
+    <!-- Google Maps view -->
+      <div class="col-sm-6">
+        <div class="well">
+        <div id="mapIndex"></div>
+          <script>
+            function initMap() {
+              var mapIndexed = new google.maps.Map(document.getElementById('mapIndex'), {
+                center: {lat: 41.8922745, lng: -87.6346887},
+                zoom: 11
+              });
+            }
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18&callback=initMap" async defer>
+          </script>
         </div>
-
-
+      </div>
   </div>
 </div>
