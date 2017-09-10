@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     data: {
       message: '',
       nameFilter: "",
-      schools: []
+      schools: [],
+      googleMap: null
     },
     mounted: function() {
     // Ajax call for SavedSearches
@@ -57,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             center: {lat: 41.8922745, lng: -87.6346887},
             zoom: 11
           });
+          this.googleMap = mapIndexed;
           schools.forEach(function(school) {
             console.log('school is', school["location"]["coordinates"]);
             var latitude = school["location"]["coordinates"][1];
@@ -67,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
               map: mapIndexed,
               position: {lat: latitude, lng: longitude}
             });
+            school.marker = marker;
           });
           this.schools = schools;
         }.bind(this)
@@ -84,7 +87,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
     methods: {
       isValidSchool: function(school) {
-        return school.long_name.toLowerCase().indexOf(this.nameFilter.toLowerCase()) !== -1;
+        var showSchool = school.long_name.toLowerCase().indexOf(this.nameFilter.toLowerCase()) !== -1;
+        school.marker.setVisible(showSchool);
+        return showSchool;
       }
     },
     computed: {

@@ -12,11 +12,13 @@ class SchoolsController < ApplicationController
   end
 
   def show
-    # Individual page for one school or a compare page for multiple schools
     school_id = params[:id]
+    
+  # School Progress Reports SY1617
     response_details = Unirest.get("https://data.cityofchicago.org/resource/iqnd-nmue.json")
     @school_details = response_details.body
-    # @school = School.find_by(id: school_id)
+
+  # School Profile Information SY1617
     response_show = Unirest.get(
       "https://data.cityofchicago.org/resource/76dk-7ieb.json",
       parameters: {"school_id" => school_id}

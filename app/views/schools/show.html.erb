@@ -19,12 +19,39 @@
       </script>
   <br>
   <!-- School Details in Ruby-->
-    <div class="col-md-6">
       <div class="well">
         <h3><%= @school_primary["long_name"] %></h3>
-        <p><%= @school_primary["summary"] %></p>
-        <br>
-        <h4>About the neighborhood</h4>
+        <h4><%= @school_primary["address"] %></h4><br>
+        <p><%= @school_primary["summary"] %></p><br>
+        <p><%= @school_primary["school_type"] %></p>
+        <p>Offers Pre-school? <%= @school_primary["is_pre_school"] %></p>
+        <p><%= @school_primary["phone"] %></p>
+        <p><%= @school_primary["website"] %></p>
+        <p><%= @school_primary["grades_offered"] %></p><br>
+        <h5>Demographics</h5>
+        <p>Total students: <%= @school_primary["student_count_total"] %></p>
+        <p>Low Income: <%= @school_primary["student_count_low_income"] %></p>
+        <p>Black: <%= @school_primary["student_count_black"] %></p>
+        <p>Hispanic: <%= @school_primary["student_count_hispanic"] %></p>
+        <p>White: <%= @school_primary["student_count_white"] %></p>
+        <p>Asian: <%= @school_primary["student_count_asian"] %></p>
+        <p>Native American: <%= @school_primary["student_count_native_american"] %></p>
+        <p>Asian/Pacific Islander: <%= @school_primary["student_count_asian_pacific_islander"] %></p>
+        <p>Other: <%= @school_primary["student_count_other_ethnicity"] %></p>
+        <p><%= @school_primary["statistics_description"] %></p>
+        <p><%= @school_primary["demographic_description"] %></p>
+        <p><%= @school_primary["prek_school_day"] %></p>
+        <p>Hours: <%= @school_primary["school_hours"] %></p>
+        <p>After school: <%= @school_primary["after_school_hours"] %></p>
+        <p>CTA Bus: <%= @school_primary["transportation_bus"] %></p>
+        <p>CTA El: <%= @school_primary["transportation_el"] %></p>
+        <p>Metra: <%= @school_primary["transportation_metra"] %></p>
+        <p><%= @school_primary["college_enrollment_rate_school"] %></p>
+        <p><%= @school_primary["graduation_rate_school"] %></p>
+        <p><%= @school_primary["overall_rating"] %></p>
+        <p><%= @school_primary["rating_statement"] %></p>
+        <p><%= @school_primary["college_enrollment_rate_school"] %></p>
+
         <br>
         <div>
           <%= form_tag "/savedsearch", method: "post" do %>
@@ -33,16 +60,5 @@
           <% end %>
         </div>
       </div>
-    </div>
-
-  <!-- School Details in VueJS -->
-  <div id="app">
-    <div class="col-md-6">
-      <div class="well">
-        <p>{{ schools.long_name }}</p>
-      </div>
-    </div>
-  </div>
-
   </div>
 </div>
