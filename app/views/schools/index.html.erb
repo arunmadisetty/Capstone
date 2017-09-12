@@ -6,7 +6,11 @@
       <div class="col-sm-4">
         <div class="well">
           <div>
-            <input type="text" v-model="nameFilter" list="cpsNames">
+            <input type="text" class="formControl" placeholder="Enter search here" v-model="nameFilter" list="cpsNames">
+          </div>
+          <div>
+            <input type="text" placeholder="Enter address" v-model="nameAddress">
+            <button v-on:click="placeMarker(location)">Insert into map</button>
           </div>
           <br>
           <div v-for="school in schools" v-if="isValidSchool(school)">

@@ -1,5 +1,7 @@
 /* global Vue, Rails, google */
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function(event) {
+  Vue.use(VueCharts);
+
   var app = new Vue({
     el: '#app',
     data: {
@@ -90,6 +92,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var showSchool = school.long_name.toLowerCase().indexOf(this.nameFilter.toLowerCase()) !== -1;
         school.marker.setVisible(showSchool);
         return showSchool;
+      },
+      placeMarker: function(location) {
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+        map.setCenter(location)
       }
     },
     computed: {

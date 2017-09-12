@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get "/schools/:id" => "schools#show"
   # get "/:id/edit" => "schools#edit"
   # patch "/:id" => "schools#update"
-  # delete "/:id" => "schools#destroy"
+  
 
   get "/signup" => "users#new"  
   post "/users" => "users#create"
@@ -38,5 +38,5 @@ Rails.application.routes.draw do
   get "/savedsearch" => "saved_searches#index"
   post "/savedsearch" => "saved_searches#create"
   # get "/savedsearch/:id" => "saved_searches#show"
-
+  delete "/savedsearch/:id" => "saved_searches#destroy"
 end

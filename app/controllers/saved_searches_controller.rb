@@ -3,7 +3,7 @@ class SavedSearchesController < ApplicationController
     @saved_searches = current_user.saved_searches.where(status: "saved")
     @saved_schools =[]
     @saved_searches.each do |search|
-      response = Unirest.get("https://data.cityofchicago.org/resource/76dk-7ieb.json",
+      response = Unirest.get("https://data.cityofchicago.org/resource/iqnd-nmue.json",
         parameters: {"school_id" => search.school_id}
         )
       @saved_schools << response.body[0]
@@ -19,6 +19,14 @@ class SavedSearchesController < ApplicationController
       status: "saved"
     )
     saved_search.save
+    redirect_to "/savedsearch"
+  end
+
+  def destroy
+    school_id = params[:id]
+    @school = SavedSearch.find_by(school_id: school_id)
+    @school.destroy
+    flash[:danger]="School deleted."
     redirect_to "/savedsearch"
   end
 end

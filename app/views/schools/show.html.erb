@@ -9,11 +9,13 @@
     <div id="mapShow"></div>
       <script>
         function initMap() {
-          var mapShowPage = new google.maps.Map(document.getElementById('mapShow'), {
-            center: {lat: 41.8922745, lng: -87.6346887},
-            zoom: 11
+          var mapShowPage = new google.maps.Map(document.getElementById('mapShow')
           });
         }
+
+        var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18&callback=initMap" async defer>
       </script>
@@ -24,10 +26,12 @@
         <h4><%= @school_primary["address"] %></h4><br>
         <p><%= @school_primary["summary"] %></p><br>
         <p><%= @school_primary["school_type"] %></p>
-        <p>Offers Pre-school? <%= @school_primary["is_pre_school"] %></p>
+        <p>Offers Pre-school? <%= @school_primary["is_pre_school"] %> | <%= @school_primary["prek_school_day"] %></p>
         <p><%= @school_primary["phone"] %></p>
         <p><%= @school_primary["website"] %></p>
         <p><%= @school_primary["grades_offered"] %></p><br>
+        <p>Hours: <%= @school_primary["school_hours"] %></p>
+        <p>After school: <%= @school_primary["after_school_hours"] %></p><br>
         <h5>Demographics</h5>
         <p>Total students: <%= @school_primary["student_count_total"] %></p>
         <p>Low Income: <%= @school_primary["student_count_low_income"] %></p>
@@ -39,13 +43,12 @@
         <p>Asian/Pacific Islander: <%= @school_primary["student_count_asian_pacific_islander"] %></p>
         <p>Other: <%= @school_primary["student_count_other_ethnicity"] %></p>
         <p><%= @school_primary["statistics_description"] %></p>
-        <p><%= @school_primary["demographic_description"] %></p>
-        <p><%= @school_primary["prek_school_day"] %></p>
-        <p>Hours: <%= @school_primary["school_hours"] %></p>
-        <p>After school: <%= @school_primary["after_school_hours"] %></p>
+        <p><%= @school_primary["demographic_description"] %></p><br>
+        <h5>Transportation Options</h5>
         <p>CTA Bus: <%= @school_primary["transportation_bus"] %></p>
         <p>CTA El: <%= @school_primary["transportation_el"] %></p>
-        <p>Metra: <%= @school_primary["transportation_metra"] %></p>
+        <p>Metra: <%= @school_primary["transportation_metra"] %></p><br>
+        <h5>School Standing</h5>
         <p><%= @school_primary["college_enrollment_rate_school"] %></p>
         <p><%= @school_primary["graduation_rate_school"] %></p>
         <p><%= @school_primary["overall_rating"] %></p>
