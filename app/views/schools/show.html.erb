@@ -10,12 +10,13 @@
       <script>
         function initMap() {
           var mapShowPage = new google.maps.Map(document.getElementById('mapShow')
-          });
+          );
         }
 
         var marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map
+        };
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18&callback=initMap" async defer>
       </script>
@@ -32,6 +33,10 @@
         <p><%= @school_primary["grades_offered"] %></p><br>
         <p>Hours: <%= @school_primary["school_hours"] %></p>
         <p>After school: <%= @school_primary["after_school_hours"] %></p><br>
+        <h5>School Standing</h5>
+        <p><%= @school_primary["rating_statement"] %></p>
+        <p>College Enrollment Rate: <%= @school_primary["college_enrollment_rate_school"] %></p>
+        <p>Graduation Rate: <%= @school_primary["graduation_rate_school"] %></p><br>
         <h5>Demographics</h5>
         <p>Total students: <%= @school_primary["student_count_total"] %></p>
         <p>Low Income: <%= @school_primary["student_count_low_income"] %></p>
@@ -48,12 +53,6 @@
         <p>CTA Bus: <%= @school_primary["transportation_bus"] %></p>
         <p>CTA El: <%= @school_primary["transportation_el"] %></p>
         <p>Metra: <%= @school_primary["transportation_metra"] %></p><br>
-        <h5>School Standing</h5>
-        <p><%= @school_primary["college_enrollment_rate_school"] %></p>
-        <p><%= @school_primary["graduation_rate_school"] %></p>
-        <p><%= @school_primary["overall_rating"] %></p>
-        <p><%= @school_primary["rating_statement"] %></p>
-        <p><%= @school_primary["college_enrollment_rate_school"] %></p>
 
         <br>
         <div>

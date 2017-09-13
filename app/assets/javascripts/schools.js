@@ -8,7 +8,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
       message: '',
       nameFilter: "",
       schools: [],
-      googleMap: null
+      googleMap: null,
+      mylabel: 'TestDataLabel',
+      mylabels: ["black", "asian", "white", "hispanic", "native_american"],
+      mydata: [100,34,65],
+      backgroundColors: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColors: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ]
     },
     mounted: function() {
     // Ajax call for SavedSearches
@@ -17,6 +36,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
         type: "GET",
         success: function(data) {
           console.log(data);
+          this.schools = data;
+          var index = 0;
+          this.schools.forEach(function(school) {
+            school.backgroundColor = this.backgroundColors[index];
+            school.borderColor = this.borderColors[index];
+            index += 1;
+            if (index >= this.backgroundColors.length) {
+              index = 0;
+            }
+            school.studentCountData = [];
+            this.mylabels.forEach(function(label) {
+              school.studentCountData.push(school["student_count_" + label]);
+            }.bind(this));
+          }.bind(this));
+
+          console.log('schools length: ', this.schools.length);
           var mapSaved = new google.maps.Map(document.getElementById('mapSavedSearch'), {
             center: {lat: 41.8922745, lng: -87.6346887},
             zoom: 11
@@ -99,6 +134,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
           map: map
         });
         map.setCenter(location)
+      },
+      chartData: function(demo) {
+        this.mydata.push(
+          this.school.student_count_white,
+          this.school.student_count_black,
+          this.school.student_count_hispanic,
+          this.school.student_count_asian,
+          this.school.student_count_total
+        );
+      },
+      chartLabels: function(label) {
+        this.mylabels.push(this.school.long_name);
       }
     },
     computed: {
