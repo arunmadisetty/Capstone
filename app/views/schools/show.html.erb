@@ -1,26 +1,14 @@
 <script>
-  school_id = "<%= @school_primary["school_id"] %>"
+  school_id = "<%= @school_primary['school_id'] %>"
 </script>
-
 
 <div class="container">
   <div class="row no-gutters">
-  <!-- Google Maps view -->
+    <!-- Google Maps view -->
     <div id="mapShow"></div>
-      <script>
-        function initMap() {
-          var mapShowPage = new google.maps.Map(document.getElementById('mapShow')
-          );
-        }
-
-        var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-        };
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18&callback=initMap" async defer>
-      </script>
+  </div>  
   <br>
+
   <!-- School Details in Ruby-->
       <div class="well">
         <h3><%= @school_primary["long_name"] %></h3>
@@ -62,5 +50,25 @@
           <% end %>
         </div>
       </div>
-  </div>
 </div>
+
+
+      <script>
+      console.log('hello');
+        function initMap() {
+          console.log('initMap');
+          // var mapShowPage = new google.maps.Map(document.getElementById('mapShow')
+          // );
+          var map = new google.maps.Map(document.getElementById('mapShow'), {
+            center: {lat: 41.8922745, lng: -87.6346887},
+            zoom: 11
+          });
+          // var marker = new google.maps.Marker({
+          //   position: new google.maps.LatLng(location[i][1], location[i][2]),
+          //   map: map
+          // });
+        }
+      </script>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwX5lbHn1JS_1JHy1DB5Nmt9GMUPSMB18&callback=initMap" async defer>
+      </script>

@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           });
           this.googleMap = mapIndexed;
           schools.forEach(function(school) {
-            console.log('school is', school["location"]["coordinates"]);
+            // console.log('school is', school["location"]["coordinates"]);
             var latitude = school["location"]["coordinates"][1];
             var longitude = school["location"]["coordinates"][0];
             // var point = {lat: latitude, lng: longitude};
@@ -117,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         url: "/api/v1/schools/" + school_id,
         type: "GET",
         success: function(school) {
-          console.log("the school is", school);
           this.school = school;
         }.bind(this)
       });
@@ -133,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           position: location,
           map: map
         });
-        map.setCenter(location)
+        map.setCenter(location);
       },
       chartData: function(demo) {
         this.mydata.push(

@@ -34,14 +34,7 @@
           <p>Teacher Attendance - <%= school["teacher_attendance_avg_pct"] %></p>
           <p>Freshmen on Track - <%= school["freshmen_on_track"] %></p>
           <p>Supportive School Award - <%= school["supportive_school_award"] %></p>
-          <p>-<%= school["long_name"] %></p>
-          <p>-<%= school["long_name"] %></p>
-          <p>-<%= school["long_name"] %></p>
-          <p>-<%= school["long_name"] %></p>
-          <p>-<%= school["long_name"] %></p>
-          <p>-<%= school["long_name"] %></p>
-          <p>-<%= school["long_name"] %></p>
-          <p>-<%= school["long_name"] %></p><br>
+          <br>
           <% if current_user %> 
             <%= form_tag "/savedsearch/#{school['school_id']}", method: "delete" do %>
               <input type="submit" class="btn btn-default" value="Remove school">
